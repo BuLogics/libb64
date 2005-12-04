@@ -51,7 +51,7 @@ namespace base64
 			
 			do
 			{
-				std::cin.read(plaintext, N);
+				istream_in.read(plaintext, N);
 				plainlength = std::cin.gcount();
 				//
 				codelength = encode(plaintext, plainlength, code);
