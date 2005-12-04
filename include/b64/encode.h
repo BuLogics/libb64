@@ -52,15 +52,15 @@ namespace base64
 			do
 			{
 				istream_in.read(plaintext, N);
-				plainlength = std::cin.gcount();
+				plainlength = istream_in.gcount();
 				//
 				codelength = encode(plaintext, plainlength, code);
-				std::cout.write(code, codelength);
+				ostream_in.write(code, codelength);
 			}
-			while (std::cin.good() && plainlength > 0);
+			while (istream_in.good() && plainlength > 0);
 			
 			codelength = encode_end(code);
-			std::cout.write(code, codelength);
+			ostream_in.write(code, codelength);
 			//
 			base64_init_encodestate(&_state);
 			
