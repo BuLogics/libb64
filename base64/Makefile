@@ -39,15 +39,15 @@ base64: libb64.a
 strip:
 	strip $(BINARIES) *.exe
 
-clean: clean_VisualStudio
+clean: clean_VisualStudioProject
 	rm -f *.exe* *.o $(TARGETS) *.bak *~
-clean_VisualStudio:
-	$(MAKE) -C VisualStudio clean
+clean_VisualStudioProject:
+	$(MAKE) -C VisualStudioProject clean
 
-distclean: clean distclean_VisualStudio
+distclean: clean distclean_VisualStudioProject
 	rm -f depend
-distclean_VisualStudio:
-	$(MAKE) -C VisualStudio distclean
+distclean_VisualStudioProject: clean_VisualStudioProject
+	$(MAKE) -C VisualStudioProject distclean
 
 depend: $(SOURCES)
 	makedepend -f- $(CFLAGS) $(SOURCES) 2> /dev/null 1> depend
