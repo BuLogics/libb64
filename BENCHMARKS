@@ -2,32 +2,40 @@
 
 Some people have expressed opinions about how
 fast libb64's encoding and decoding routines
-are, as compared to some other base64 packages
+are, as compared to some other BASE64 packages
 out there.
 
-This was a short and sweet benchmark, which takes
-a large-ish file and encodes/decodes it a number
-of times. The winner is the executable that does this
-the quickest.
+This document shows the result of a short and sweet 
+benchmark, which takes a large-ish file and 
+encodes/decodes it a number of times.
+The winner is the executable that does this task the quickest.
+
+-- Platform
+
+The tests were all run on a Fujitsu-Siemens laptop,
+with a Pentium M processor running at 2GHz, with
+1GB of RAM, running Ubuntu 10.4.
 
 -- Packages
 
-libb64-1.2 (libb64-base64)
-From libb64.sourceforge.net
-Size: 18808 bytes
-Compiled with:
-	CFLAGS += -O3
-	BUFFERSIZE = 16777216
+The following BASE64 packages were used in this benchmark:
 
-base64-1.5 (fourmilab-base64)
-From http://www.fourmilab.ch/webtools/base64/
-Size: 20261 bytes
-Compiled with Default package settings
+- libb64-1.2 (libb64-base64)
+  From libb64.sourceforge.net
+  Size of executable: 18808 bytes
+  Compiled with:
+    CFLAGS += -O3
+    BUFFERSIZE = 16777216
 
-coreutils 7.4-2ubuntu2 (coreutils-base64)
-From http://www.gnu.org/software/coreutils/
-Size: 38488 bytes
-Default binary distributed with Ubuntu 10.4
+- base64-1.5 (fourmilab-base64)
+  From http://www.fourmilab.ch/webtools/base64/
+  Size of executable: 20261 bytes
+  Compiled with Default package settings
+
+- coreutils 7.4-2ubuntu2 (coreutils-base64)
+  From http://www.gnu.org/software/coreutils/
+  Size of executable: 38488 bytes
+  Default binary distributed with Ubuntu 10.4
 
 -- Input File
 
@@ -39,7 +47,7 @@ Size: 18285329 bytes
 -- Method
 
 Encode and Decode the Input file 50 times in a loop,
-and get the running time.
+using a simple shell script, and get the running time.
 
 -- Results
 
@@ -58,10 +66,18 @@ real	0m36.288s
 user	0m24.746s
 sys	0m8.181s
 
+28.389 for 18MB * 50
+= 28.389 for 900
+
 -- Conclusion
 
 libb64 is the fastest encoder/decoder, and 
 has the smallest executable size.
+
+On average it will encode and decode at roughly 31.7MB/second.
+
+The closest "competitor" is base64 from GNU coreutils, which
+reaches only 24.8MB/second.
 
 --
 14/06/2010

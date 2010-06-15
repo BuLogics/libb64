@@ -44,32 +44,16 @@ http://creativecommons.org/licenses/publicdomain/
 
 Commandline Use:
 ---------------
-Two pairs of executables are available:
-*) b64enc and b64dec, and
-*) encoder and decoder
-
-Both pairs function in the same way: the encoding half accepts data from the
-standard input, and spits out the base64-encoded data to standard output.
-The decoding half does the reverse: it accepts base64-encoded data on standard
-input, and spits out the plain data on standard output.
-
-This allows for direct use, as well as easy integration into a piped command.
-
-For example, to encode file, run
-$ cat file | ./encode > file.txt
-and to decode the text into the original file
-$ cat file.txt | ./decode > file2
-
-file and file2 is 100% identical, file.txt is a 100% pure ASCII file.
-
 There is a new executable available, it is simply called base64.
 It can encode and decode files, as instructed by the user.
+
 To encode a file:
 $ ./base64 -e filea fileb
-fileb will now be the base64-encoded version of filea
+fileb will now be the base64-encoded version of filea.
+
 To decode a file:
 $ ./base64 -d fileb filec
-filec will now be identical to filea
+filec will now be identical to filea.
 
 Programming:
 -----------
@@ -92,6 +76,9 @@ Implementation:
 It is DAMN fast, if I may say so myself. The C code uses a little trick which
 has been used to implement coroutines, of which one can say that this
 implementation is an example.
+
+(To see how the libb64 codebase compares with some other BASE64 implementations
+available, see the BENCHMARKS file)
 
 The trick involves the fact that a switch-statement may legally cross into
 sub-blocks. A very thorough and enlightening essay on co-routines in C, using

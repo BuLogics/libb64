@@ -35,9 +35,9 @@ Run make in the root directory.
 
 Installing:
 ----------
-Since the current targets are standalone executables and a static library
-(fancy name for archive), an install script has not been implemented yet.
-Simply copy the executabled into your path, and use them.
+Since the current targets are a standalone executable and a static library
+(fancy name for archive) with some headers, an install script has not been implemented yet.
+Simply copy the executable into your path, and use it.
 
 --
 peace out
