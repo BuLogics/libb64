@@ -1,3 +1,4 @@
+BINARIES = decoder encoder b64dec b64enc base64
 LIBRARIES = libb64.a
 
 # Build flags (uncomment one)
@@ -9,23 +10,31 @@ CFLAGS += -O3
 #CFLAGS += -g
 #############################
 
-SOURCES = cdecode.c  cencode.c
+# select a buffersize
+#BUFFERSIZE = 4096
+#BUFFERSIZE = 65536
+BUFFERSIZE = 16777216
 
-TARGETS = $(LIBRARIES)
+SOURCES = b64dec.c  b64enc.c  cdecode.c  cencode.c  decoder.cc  encoder.cc base64.cc
 
-LINK.o = gcc
+TARGETS = $(BINARIES)
+
+LINK.o = g++
 
 CFLAGS += -Werror -pedantic
+CFLAGS += -DBUFFERSIZE=$(BUFFERSIZE)
 CFLAGS += -I../include
 
+CXXFLAGS += $(CFLAGS)
+
 vpath %.h ../include/b64
+vpath %.a ../src
 
 .PHONY : clean
 
 all: $(TARGETS) #strip
 
-libb64.a: cencode.o cdecode.o
-	$(AR) $(ARFLAGS) $@ $^
+base64 b64enc b64dec encoder decoder: libb64.a
 
 strip:
 	strip $(BINARIES) *.exe

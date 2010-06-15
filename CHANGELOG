@@ -3,6 +3,19 @@ libb64: Base64 Encoding/Decoding Routines
 
 ## Changelog ##
 
+Version 1.2 Release
+-------------------
+Modified the examples (b64enc, b64dec, encoder and decoder):
+Added code to force STDIN and STDOUT to binary mode, since there
+are operating systems out there where this is not the default mode
+for these streams.
+
+Added another example, called base64, which encodes and decodes 
+depending on its arguments.
+
+Created a solution for Microsoft Visual Studio C++ Express 2010
+edition, which simply builds the base64 example as a console application.
+
 Version 1.1 Release
 -------------------
 Modified encode.h to (correctly) read from the iostream argument,

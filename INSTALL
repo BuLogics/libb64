@@ -3,8 +3,12 @@ libb64: Base64 Encoding/Decoding Routines
 
 Requirements:
 ------------
-This piece of software has minimal requirements. I have tested it on a Linux
-machine, with the following specs, both hard and soft:
+This piece of software has minimal requirements.
+
+I have tested it on the following systems:
+
+- a Linux machine, with the following specs:
+(this was the original development machine)
 	* FedoraCore 4
 	* kernel v. 2.6.11 (stock FC4 kernel)
 	* gcc version 4.0.1 20050727 (Red Hat 4.0.1-5)
@@ -12,10 +16,17 @@ machine, with the following specs, both hard and soft:
 	* make v. 3.80
 	* some arb version of makedepend
 
-I have, as yet, not tested it on a Windows machine. But barring any serious
-screwups on my part, this should compile and run sweetly under Cygwin too.
-If you DO get it running under some weird arch/os setup, send me a 
-mail, please.
+- Windows XP machine
+	* MSYS 1.0
+	* MinGW 5.1.4
+	* gcc version 3.4.5 (mingw-vista special r3)
+
+- Windows XP machine (same as above)
+	* Microsoft Visual Studio 2010, Version 10.0.30319.1 RTMRel
+	
+Barring any serious screwups on my part, this code should compile and run sweetly
+under Cygwin and other systems too. If you DO get it running under some weird arch/os setup,
+send me a mail, please.
 
 Compiling:
 ---------

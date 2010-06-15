@@ -85,3 +85,4 @@ int base64_decode_block(const char* code_in, const int length_in, char* plaintex
 	/* control should not reach here */
 	return plainchar - plaintext_out;
 }
+

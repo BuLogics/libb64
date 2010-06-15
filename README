@@ -62,6 +62,15 @@ $ cat file.txt | ./decode > file2
 
 file and file2 is 100% identical, file.txt is a 100% pure ASCII file.
 
+There is a new executable available, it is simply called base64.
+It can encode and decode files, as instructed by the user.
+To encode a file:
+$ ./base64 -e filea fileb
+fileb will now be the base64-encoded version of filea
+To decode a file:
+$ ./base64 -d fileb filec
+filec will now be identical to filea
+
 Programming:
 -----------
 Some C++ wrappers are provided as well, so you don't have to get your hands
