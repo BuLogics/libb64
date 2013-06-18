@@ -71,6 +71,11 @@ dirty. Encoding from standard input to standard output is as simple as
 
 Both standalone executables and a static library is provided in the package,
 
+Example code:
+------------
+The 'examples' directory contains some simple example C code, that demonstrates
+how to use the C interface of the library.
+
 Implementation:
 --------------
 It is DAMN fast, if I may say so myself. The C code uses a little trick which
